@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 
 interface PromptInputProps {
@@ -35,7 +34,7 @@ export const PromptInput: React.FC<PromptInputProps> = ({ onSubmit, isLoading })
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex items-start space-x-2 p-2 border-2 border-[#00ff9c]/50 bg-[#1a1a1a]">
+    <form onSubmit={handleSubmit} className="flex items-start space-x-2 p-2 border-2 border-[#FACA78]/50 bg-[#2E2E2E]/50">
       <textarea
         ref={textareaRef}
         value={prompt}
@@ -47,17 +46,17 @@ export const PromptInput: React.FC<PromptInputProps> = ({ onSubmit, isLoading })
           }
         }}
         placeholder="Enter your request..."
-        className="flex-grow bg-transparent text-gray-200 placeholder-gray-500 focus:outline-none resize-none max-h-48 overflow-y-auto"
+        className="flex-grow bg-transparent text-[#EFF5F6] placeholder-[#B2D3DE]/60 focus:outline-none resize-none max-h-48 overflow-y-auto"
         rows={1}
         disabled={isLoading}
       />
       <button
         type="submit"
         disabled={isLoading || !prompt.trim()}
-        className="w-10 h-10 flex items-center justify-center bg-[#00ff9c] text-black font-bold transition-all duration-200 enabled:hover:bg-white enabled:hover:shadow-[0_0_15px_#00ff9c] disabled:bg-gray-600 disabled:cursor-not-allowed"
+        className="w-10 h-10 flex items-center justify-center bg-[#FACA78] text-[#163666] font-bold transition-all duration-200 enabled:hover:bg-[#FAFAFA] enabled:hover:shadow-[0_0_15px_#FACA78] disabled:bg-[#575757] disabled:cursor-not-allowed"
       >
         {isLoading ? (
-          <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+          <div className="w-5 h-5 border-2 border-[#163666] border-t-transparent rounded-full animate-spin"></div>
         ) : (
           <SendIcon />
         )}

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import type { Mode } from '../types';
 
@@ -21,8 +20,13 @@ const promptsByMode: Record<Mode, { label: string; prompt: string }[]> = {
   STRATEGY: [
     { label: "Blog category descriptions", prompt: "Generate 3 blog category descriptions in the REVREBEL voice with SEO and content hooks. The categories are: 'Brand Strategy', 'Hotel Tech', and 'Creative Ops'." },
     { label: "Structure a service page", prompt: "Outline the key sections for a new service page called 'Revenue Intelligence Dashboard'. What's the strategic flow of information?" },
-    { label: "Name a new feature", prompt: "Suggest three on-brand names for a new feature in our software that automatically detects and flags booking anomalies for hotels." },
+    { label: "Summarize a Google Doc", prompt: "Please read this document and give me a summary of the key takeaways: [PASTE A PUBLIC GOOGLE DOC LINK HERE]" },
   ],
+  CREATIVE_IDEATION: [
+    { label: "Color palette for a brand", prompt: "Propose a color palette concept for a luxury hotel brand that feels both modern and timeless." },
+    { label: "Mood board for a campaign", prompt: "I need a mood board concept for a marketing campaign targeting tech-savvy travelers. The theme is 'Digital Nomadism in the City'." },
+    { label: "Concept for a logo", prompt: "Generate a concept for a logo for a new coffee shop called 'The Byte Bar'. It should feel retro-tech and welcoming." },
+  ]
 };
 
 export const SamplePrompts: React.FC<SamplePromptsProps> = ({ onPromptClick, currentMode }) => {
@@ -34,7 +38,7 @@ export const SamplePrompts: React.FC<SamplePromptsProps> = ({ onPromptClick, cur
         <button
           key={label}
           onClick={() => onPromptClick(prompt, currentMode)}
-          className="px-3 py-1 text-xs bg-gray-800 text-gray-400 border border-gray-700 hover:bg-gray-700 hover:text-white transition-colors"
+          className="px-3 py-1 text-xs bg-[#2E2E2E] text-[#B2D3DE] border border-[#575757] hover:bg-[#575757] hover:text-[#FAFAFA] transition-colors"
         >
           {label}
         </button>
