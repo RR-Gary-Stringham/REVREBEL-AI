@@ -114,7 +114,7 @@ class EmbeddingProcessor:
                 print(f"  Generated embedding (dimension: {len(embedding)})")
 
             # Add embedding to data
-            data['_embedding'] = embedding
+            data['vector'] = embedding
             data['_embedding_model'] = self.embedding_model
             data['_source_file'] = json_file.name
 

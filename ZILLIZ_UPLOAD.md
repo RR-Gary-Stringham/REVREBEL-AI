@@ -36,9 +36,9 @@ A Python script that uploads embedded JSON files from the Complete folder to Zil
 ## How It Works
 
 1. Reads all `.json` files from the `Complete` folder
-2. Validates that each file has embeddings (looks for `_embedding` or `vector` field)
+2. Validates that each file has embeddings (looks for `vector` field)
 3. Connects to Zilliz Cloud
-4. Prepares entries for insertion (renames `_embedding` to `vector`, removes metadata)
+4. Prepares entries for insertion (removes metadata fields)
 5. Uploads in batches (default: 100 entries per batch)
 6. Moves successfully uploaded files to the `Uploaded` folder
 7. Displays statistics and summary
@@ -168,7 +168,7 @@ The script handles various error scenarios:
 
 ### "No embedding found, skipping"
 - Make sure to run `process_embeddings.py` first
-- Check that the Complete folder contains files with `_embedding` field
+- Check that the Complete folder contains files with `vector` field
 
 ### "Failed to load collection"
 - Verify your collection exists in Zilliz Cloud
@@ -187,8 +187,9 @@ Your Zilliz collection must have:
 - Any other fields present in your JSON files
 
 The script automatically:
-- Renames `_embedding` → `vector`
+- Uses the `vector` field from the JSON files
 - Removes `_embedding_model` and `_source_file` metadata
+- Supports legacy `_embedding` field for backward compatibility
 
 ## Notes
 

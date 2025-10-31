@@ -97,11 +97,11 @@ class ZillizUploader:
             Prepared entry for Zilliz
         """
         # Default behavior: use the data as-is
-        # The embedding should already be in the '_embedding' field
+        # The embedding should already be in the 'vector' field
         entry = data.copy()
 
-        # Rename _embedding to vector if needed
-        if '_embedding' in entry:
+        # Support legacy '_embedding' field for backward compatibility
+        if '_embedding' in entry and 'vector' not in entry:
             entry['vector'] = entry.pop('_embedding')
 
         # Remove metadata fields that aren't part of your schema

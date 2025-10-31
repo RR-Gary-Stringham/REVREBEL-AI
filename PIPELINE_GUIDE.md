@@ -63,7 +63,7 @@ python upload_to_zilliz.py
 2. Extracts text content from each JSON file
 3. Generates embeddings using OpenAI API
 4. Adds three fields to each JSON:
-   - `_embedding`: Array of embedding values
+   - `vector`: Array of embedding values
    - `_embedding_model`: Name of the model used
    - `_source_file`: Original filename
 5. Saves enhanced files to `Complete/` folder
@@ -208,7 +208,7 @@ export ZILLIZ_CLOUD_TOKEN='your-token'
   "metadata": {
     "author": "John"
   },
-  "_embedding": [0.123, -0.456, 0.789, ...],
+  "vector": [0.123, -0.456, 0.789, ...],
   "_embedding_model": "text-embedding-3-small",
   "_source_file": "example.json"
 }
@@ -231,7 +231,7 @@ export ZILLIZ_CLOUD_TOKEN='your-token'
 
 ### "No embedding found, skipping"
 - Run `process_embeddings.py` first before `upload_to_zilliz.py`
-- Check that files in `Complete/` folder have the `_embedding` field
+- Check that files in `Complete/` folder have the `vector` field
 
 ### "Failed to load collection"
 - Verify your Zilliz collection exists
