@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import List, Dict, Any
 from pymilvus import connections, Collection
 import time
+from dotenv import load_dotenv
 
 
 class ZillizUploader:
@@ -281,6 +282,8 @@ class ZillizUploader:
 
 def main():
     """Main entry point for the script."""
+    # Load environment variables from .env file
+    load_dotenv()
 
     # Check for Zilliz credentials
     zilliz_uri = os.getenv('ZILLIZ_CLOUD_URI')

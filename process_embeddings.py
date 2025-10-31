@@ -10,6 +10,7 @@ import sys
 from pathlib import Path
 from typing import Dict, Any, List
 from openai import OpenAI
+from dotenv import load_dotenv
 
 
 class EmbeddingProcessor:
@@ -151,6 +152,9 @@ class EmbeddingProcessor:
 
 def main():
     """Main entry point for the script."""
+    # Load environment variables from .env file
+    load_dotenv()
+
     # Check for OpenAI API key
     if not os.getenv('OPENAI_API_KEY'):
         print("Error: OPENAI_API_KEY environment variable not set")
